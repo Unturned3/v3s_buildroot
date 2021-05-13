@@ -4148,11 +4148,11 @@ CONFIG_CRYPTO_NULL2=y
 #
 # Block modes
 #
-# CONFIG_CRYPTO_CBC is not set
+CONFIG_CRYPTO_CBC=y
 # CONFIG_CRYPTO_CFB is not set
 # CONFIG_CRYPTO_CTR is not set
 # CONFIG_CRYPTO_CTS is not set
-# CONFIG_CRYPTO_ECB is not set
+CONFIG_CRYPTO_ECB=y
 # CONFIG_CRYPTO_LRW is not set
 # CONFIG_CRYPTO_OFB is not set
 # CONFIG_CRYPTO_PCBC is not set
