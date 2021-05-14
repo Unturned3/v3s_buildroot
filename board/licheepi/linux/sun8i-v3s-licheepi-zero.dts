@@ -41,7 +41,7 @@
 };
 
 &ohci0 {
-	status = "okay";
+	status = "disabled";
 };
 
 &mmc0 {
@@ -59,7 +59,7 @@
 
 &usb_otg {
 	dr_mode = "host";
-	status = "okay";
+	status = "disabled";
 };
 
 &usbphy {
