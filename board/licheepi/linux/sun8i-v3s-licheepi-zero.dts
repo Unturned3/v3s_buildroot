@@ -41,7 +41,7 @@
 };
 
 &ohci0 {
-	status = "disabled";
+	status = "okay";
 };
 
 &mmc0 {
@@ -65,4 +65,43 @@
 &usbphy {
 	usb0_id_det-gpios = <&pio 5 6 GPIO_ACTIVE_HIGH>;
 	status = "okay";
+};
+
+&csi1 {
+	status = "okay";
+    pinctrl-names = "default";
+    pinctrl-0 = <&csi1_8bit_pins>;
+	port {
+		csi1_ep: endpoint {
+			remote-endpoint = <&ov2640_0>;
+			hsync-active = <0>;
+			vsync-active = <0>;
+			bus-width = <10>;
+			pclk-sample = <1>;
+		};
+	};
+};
+
+&i2c1 {
+	pinctrl-0 = <&i2c1_pe_pins>;
+	pinctrl-names = "default";
+	status = "okay";
+
+	ov2640: camera@30 {
+		compatible = "ovti,ov2640";
+		reg = <0x30>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&csi1_mclk_pin>;
+		clocks = <&ccu CLK_CSI1_MCLK>;
+		clock-names = "xvclk";
+		assigned-clocks = <&ccu CLK_CSI1_MCLK>;
+		assigned-clock-rates = <24000000>;
+		
+		port {
+			ov2640_0: endpoint {
+				remote-endpoint = <&csi1_ep>;
+				bus-width = <10>;
+			};
+		};
+	};
 };
