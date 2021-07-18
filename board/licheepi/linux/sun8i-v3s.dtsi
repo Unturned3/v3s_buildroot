@@ -329,13 +329,11 @@
 				function = "i2c0";
 			};
 
-			///omit-if-no-ref/
 			i2c1_pe_pins: i2c1-pe-pins {
 				pins = "PE21", "PE22";
 				function = "i2c1";
 			};
 
-			///omit-if-no-ref/
 			csi1_8bit_pins: csi1-8bit-pins {
 				pins = "PE0", "PE2", "PE3", "PE8", "PE9",
 				       "PE10", "PE11", "PE12", "PE13", "PE14",
@@ -343,7 +341,6 @@
 				function = "csi";
 			};
 
-			///omit-if-no-ref/
 			csi1_mclk_pin: csi1-mclk-pin {
 				pins = "PE1";
 				function = "csi";
