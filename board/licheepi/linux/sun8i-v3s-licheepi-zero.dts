@@ -67,10 +67,17 @@
 	status = "okay";
 };
 
+&i2c0 {
+	pinctrl-0 = <&i2c0_pins>;
+	pinctrl-names = "default";
+	status = "okay";
+};
+
+/*
 &csi1 {
 	status = "okay";
-    pinctrl-names = "default";
-    pinctrl-0 = <&csi1_8bit_pins>;
+	pinctrl-names = "default";
+	pinctrl-0 = <&csi1_8bit_pins>;
 	port {
 		csi1_ep: endpoint {
 			remote-endpoint = <&ov2640_0>;
@@ -101,6 +108,59 @@
 			ov2640_0: endpoint {
 				remote-endpoint = <&csi1_ep>;
 				bus-width = <10>;
+			};
+		};
+	};
+};
+*/
+
+&csi1 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&csi1_8bit_pins>;
+	status = "okay";
+
+	port {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		csi1_ep: endpoint {
+			remote-endpoint = <&ov5640_ep>;
+			bus-width = <8>;
+			hsync-active = <1>;		// Active high
+			vsync-active = <0>;		// Active low
+			data-active = <1>;		// Active high
+			pclk-sample = <1>;		// Rising
+		};
+	};
+};
+
+&i2c1 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&i2c1_pe_pins>;
+	status = "okay";
+
+	ov5640: camera@3c {
+		compatible = "ovti,ov5640";
+		reg = <0x3c>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&csi1_mclk_pin>;
+		clocks = <&ccu CLK_CSI1_MCLK>;
+		clock-names = "xclk";
+
+		//AVDD-supply = <&reg_ldo3>;
+		//DOVDD-supply = <&reg_ldo3>;
+		//DVDD-supply = <&reg_ldo4>;
+		//reset-gpios = <&pio 4 23 GPIO_ACTIVE_LOW>;			// PE23
+		//powerdown-gpios = <&pio 4 24 GPIO_ACTIVE_HIGH>;		// PE24
+
+		port {
+			ov5640_ep: endpoint {
+				remote-endpoint = <&csi1_ep>;
+				bus-width = <8>;
+				hsync-active = <1>;		// Active high
+				vsync-active = <0>;		// Active low
+				data-active = <1>;		// Active high
+				pclk-sample = <1>;		// Rising
 			};
 		};
 	};
