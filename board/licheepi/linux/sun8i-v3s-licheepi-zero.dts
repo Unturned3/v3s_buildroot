@@ -59,7 +59,7 @@
 
 &usb_otg {
 	dr_mode = "host";
-	status = "disabled";
+	status = "okay";
 };
 
 &usbphy {
