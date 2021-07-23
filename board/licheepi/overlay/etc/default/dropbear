@@ -1,0 +1,3 @@
+#!/bin/sh
+
+export DROPBEAR_ARGS=" -b /etc/dropbear_banner "
