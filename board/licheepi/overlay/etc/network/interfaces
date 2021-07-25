@@ -1,0 +1,8 @@
+# network interfaces (from buildroot overlay, to customize eth0 stuff)
+
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet dhcp
+    hwaddress ether 12:34:56:78:9A:AA
