@@ -1,7 +1,19 @@
+
+## Important Notice
+
+__This repo is no longer actively maintained as of 2022-08-04__.
+
+__The work in this repo is merged into [Unturned3/v3s3](https://github.com/Unturned3/v3s3)__.
+
+In addition to many new features, the `v3s3` repo uses a _buildroot external tree_ (see [buildroot manual](https://buildroot.org/downloads/manual/manual.html) section 9.2), which avoids modification of the original buildroot source and cleanly contains all customizations in a separate directory, allowing for easy migration to future buildroot releases.
+
+
+----------------------------------------------
+
+## README
+
 This is a fork of vanilla buildroot 2020.11.3,
 modified for the Allwinner V3s SoC.
-
--- test edit --
 
 ----------------------------------------------
 
