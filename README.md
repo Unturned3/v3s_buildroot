@@ -1,7 +1,7 @@
 
 ## Important Notice
 
-__This repo is no longer actively maintained as of 2022-08-04__.
+__This repo is no longer actively maintained as of 2023-03-19__.
 
 __The work in this repo is merged into [Unturned3/v3s3](https://github.com/Unturned3/v3s3)__.
 
